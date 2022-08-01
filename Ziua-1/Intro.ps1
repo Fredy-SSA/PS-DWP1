@@ -47,4 +47,19 @@ Get-ChildItem "C:\Users\a856239\OneDrive - Atos" -Recurse
 code .\transcript.txt
 notepad .\transcript.txt
 
+# COmenzi
+
+
+Get-Module
+
+get-module -ListAvailable
+
+Get-Command -Module  Microsoft.PowerShell.Utility
+Get-Command -Module  Microsoft.PowerShell.Utility -Verb get
+Get-Command -Module  Microsoft.PowerShell.Utility -Noun *data*
+
+Get-Command *-*data*
+
+Get-Command get-*
+Get-Command get-* -Module Microsoft.Graph.*
 
