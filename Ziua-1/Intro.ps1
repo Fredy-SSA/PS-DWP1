@@ -64,3 +64,16 @@ Get-Command get-*
 Get-Command get-* -Module Microsoft.Graph.*
 
 # Find Ping alternative in PowerShell
+
+get-command test-*
+get-command *connection*
+
+get-help -online
+
+Test-NetConnection -Port 80 -InformationLevel Detailed
+Test-NetConnection google.ro -Port 443 -InformationLevel Detailed
+
+get-help Test-NetConnection -ShowWindow
+
+Test-Connection google.ro
+
