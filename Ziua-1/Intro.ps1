@@ -63,3 +63,4 @@ Get-Command *-*data*
 Get-Command get-*
 Get-Command get-* -Module Microsoft.Graph.*
 
+# Find Ping alternative in PowerShell
