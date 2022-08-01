@@ -77,3 +77,23 @@ get-help Test-NetConnection -ShowWindow
 
 Test-Connection google.ro
 
+Get-History
+
+
+#Help 
+
+get-help about_*
+
+get-help about_Comparison_Operators -ShowWindow
+
+get-help about_If -ShowWindow
+get-help about_Switch -ShowWindow
+
+0 -eq 0
+0 -eq 1
+
+update-help -Force
+
+mkdir help
+save-help ./help 
+update-help -SourcePath .\help
