@@ -97,3 +97,25 @@ update-help -Force
 mkdir help
 save-help ./help 
 update-help -SourcePath .\help
+
+
+get-help Get-Process -ShowWindow 
+
+help Get-Process
+man get-process 
+
+get-help Get-Process -Examples
+get-help Get-Process -Full
+get-help Get-Process -Online
+
+# Find cmdlet/module /scripts
+
+find-module *azure*  
+Install-Module AzureADPreview   -Scope AllUsers 
+
+Get-Command -module AzureADPreview 
+
+Connect-AzureAD 
+# Use https://cdx.transform.microsoft.com/ account from tenant
+Disconnect-AzureAD 
+
