@@ -84,4 +84,44 @@ code .\export.txt
 
 Get-Content .\export.txt | Get-Service
 
+# Get-Member 
+#metods
+#proprietati
+
+get-process | gm
+
+get-process | Get-Member
+start-process     | get-member
+
+get-process | ? processname -like "notepad" 
+$notepad = get-process | ? processname -like "notepad" 
+$notepad.Kill()
+get-process | ? processname -like "notepad" | Stop-Process
+
+
+#sortare
+get-process | Sort-Object ProcessName 
+get-process | Sort-Object ProcessName  -Descending
+get-process | Sort-Object ProcessName  -Unique
+
+
+Get-Service | Select -Last 10
+Get-Service | Select -first 10
+
+
+get-process | measure -Property CPU -Sum -Average -Minimum -Maximum -StandardDeviation
+
+Get-Process | gm
+Get-Process | select processname | gm
+
+Get-Process |select * | ft -AutoSize -Wrap
+Get-Process | fl
+Get-Process | fw ProcessName -Column 5 
+
+Get-Process | ft | export-csv fttest.csv # !!!! nu se poate exporta dupa format...
+code .\fttest.csv
+
+
+
+
 
