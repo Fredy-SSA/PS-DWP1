@@ -119,3 +119,38 @@ Connect-AzureAD
 # Use https://cdx.transform.microsoft.com/ account from tenant
 Disconnect-AzureAD 
 
+find-script *azuread*
+
+# 
+
+Get-alias
+
+dir c:\
+gci c:\
+Get-ChildItem c:\
+
+get-alias -Definition get-childitem
+get-alias -Definition copy-item
+get-alias -Definition get-process
+
+Show-Command
+Get-ChildItem -LiteralPath c:\
+
+#help advanced
+
+get-help get-service -Full
+get-help get-service -ShowWindow
+
+get-help Test-Connection -ShowWindow
+
+$b = 1
+$a = "1"
+
+$a.GetType()
+$b.GetType()
+
+
+
+[int]$b + [int]$a
+[string]$b + [string]$a
+
