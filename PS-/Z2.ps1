@@ -19,3 +19,10 @@ Get-ADObject -Filter 'ObjectClass -eq "contact"'
 
 Get-Command *-ADObject*
 
+#net CMD
+Test-Connection 192.168.0.2
+Test-Connection 192.168.0.2 -Count 1 | fl
+
+Get-NetIPConfiguration
+get-command *-dnsclient*
+get-command *-NetIP*
