@@ -121,7 +121,8 @@ Get-Process | fw ProcessName -Column 5
 Get-Process | ft | export-csv fttest.csv # !!!! nu se poate exporta dupa format...
 code .\fttest.csv
 
-
+# formatare in unitatea de masura dorita 
+Get-Process | select PM, @{n="PM(MB)";e={'{0:N2}' -f ($psitem.PM / 1MB) }}, @{n="PM(GB)";e={'{0:N6}' -f ($psitem.PM / 1GB) }}
 
 
 
