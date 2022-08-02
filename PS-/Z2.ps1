@@ -141,3 +141,18 @@ get-service | ? Name -like "a*" |  ? Status -eq "running"
 # comanda | ? {$PSItem.capdetabel -operatordecomparare_gen_like "*valoare*" -or $PSItem.capdetabel -like "*valoarea a 2-a*" }
 get-service | ? {$_.Name -like "a*" -and $_.status -eq "running" }
 
+# loop / 
+
+$sursadedate = Get-Content .\export.txt 
+$sursadedate | % {
+write-host "---------------------------------"
+write-host $_   -ForegroundColor Yellow
+"#################################"
+}
+
+
+foreach ($Item in $sursadedate) {
+    write-host "---------------------------------"
+    write-host $Item   -ForegroundColor Yellow
+    "#################################"
+}
