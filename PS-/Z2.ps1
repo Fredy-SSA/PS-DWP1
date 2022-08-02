@@ -156,3 +156,15 @@ foreach ($Item in $sursadedate) {
     write-host $Item   -ForegroundColor Yellow
     "#################################"
 }
+
+#export to file
+Get-Date > service.txt
+Get-Service >> service.txt 
+
+
+Get-date| Out-File service.txt 
+Get-Service | Out-File -Append service.txt 
+
+
+get-process | Out-GridView
+
