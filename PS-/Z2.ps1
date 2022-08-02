@@ -124,5 +124,20 @@ code .\fttest.csv
 # formatare in unitatea de masura dorita 
 Get-Process | select PM, @{n="PM(MB)";e={'{0:N2}' -f ($psitem.PM / 1MB) }}, @{n="PM(GB)";e={'{0:N6}' -f ($psitem.PM / 1GB) }}
 
+# ###
+##### Filtering
+# ###
 
+# Simple sintax
+# comanda | ? capdetabel -like "*valoare*"
+get-service | ? Name -like "a*"
+get-service | ? Status -eq "running"
+get-service | Where-Object Status -eq "running"
+get-service | Where Status -eq "running"
+get-service | ? Name -like "a*" |  ? Status -eq "running"
+
+#advance filtering
+# comanda | ? {$_.capdetabel -like "*valoare*"}
+# comanda | ? {$PSItem.capdetabel -operatordecomparare_gen_like "*valoare*" -or $PSItem.capdetabel -like "*valoarea a 2-a*" }
+get-service | ? {$_.Name -like "a*" -and $_.status -eq "running" }
 
