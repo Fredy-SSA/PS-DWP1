@@ -45,3 +45,6 @@ Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name + " test"}
 #custom name 
 #@{n="Nume CUstom Label";e={$psitem.numeproprietate}}
 
+
+#ex creati pt get-process -   ProcessName  un custom name care se
+# numeste PN si importa datele
