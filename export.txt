@@ -1,0 +1,16 @@
+AudioEndpointBuilder
+Audiosrv
+dot3svc
+EventLog
+FontCache
+FontCache3.0.0.0
+LanmanWorkstation
+LicenseManager
+mpssvc
+alin
+SecurityHealthService
+Sense
+TokenBroker
+W32Time
+WavesSysSvc
+WbioSrvc
