@@ -48,3 +48,20 @@ Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name + " test"}
 
 #ex creati pt get-process -   ProcessName  un custom name care se
 # numeste PN si importa datele
+
+
+
+
+notepad export.csv
+$importCSv = Import-Csv export.csv
+$importCSv | gm
+
+Get-Process | select *, @{n='pn';e={$_.processname}} | Export-Clixml export.xml 
+
+notepad export.xml 
+
+$testImportXml = Import-Clixml export.xml 
+$testImportXml | ft 
+$testImportXml | gm
+
+
