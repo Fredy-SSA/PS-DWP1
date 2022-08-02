@@ -65,3 +65,23 @@ $testImportXml | ft
 $testImportXml | gm
 
 
+# byValue
+
+get-help get-service -ShowWindow
+
+get-service
+
+"AarSvc_60721c6a" | get-service
+
+"AarSvc_60721c6a","ZSATunnel", "WSearch" | get-service
+"running" | get-service #nu functioneaza 
+
+
+get-service | ? status -like "running" | ? DisplayName -like w*
+
+get-service | ? status -like "running" | ? DisplayName -like w* | select name -ExpandProperty Name | out-file export.txt
+code .\export.txt
+
+Get-Content .\export.txt | Get-Service
+
+
