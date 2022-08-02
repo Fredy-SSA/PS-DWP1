@@ -26,3 +26,22 @@ Test-Connection 192.168.0.2 -Count 1 | fl
 Get-NetIPConfiguration
 get-command *-dnsclient*
 get-command *-NetIP*
+
+#pipeline
+
+Get-aduser -Filter * | ? name -like *a | set-aduser -Department "Necajitii"
+
+Get-ADComputer -Filter * | test-connection -count 1
+
+# byPropertyName
+Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$psitem.Name}}
+Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name}}
+Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name}} | get-member
+
+Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name}} | test-connection -count 1
+
+Get-ADComputer -Filter * | select Name, @{n="ComputerName";e={$_.Name + " test"}}
+
+#custom name 
+#@{n="Nume CUstom Label";e={$psitem.numeproprietate}}
+
