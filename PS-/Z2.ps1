@@ -143,6 +143,10 @@ get-service | ? {$_.Name -like "a*" -and $_.status -eq "running" }
 
 # loop / 
 
+$sursadedate | foreach {
+    comanda $_.numeproprietate
+    }
+
 $sursadedate = Get-Content .\export.txt 
 $sursadedate | % {
 write-host "---------------------------------"
@@ -167,4 +171,5 @@ Get-Service | Out-File -Append service.txt
 
 
 get-process | Out-GridView
+
 
