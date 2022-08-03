@@ -179,3 +179,30 @@ get-help about_*com*
 
 $test = Get-Service
 $test.Name.Length
+
+
+$email = "alin@google.ro"
+$split = $email.Split("@") 
+$nume= $split[0]
+$domeniu = $split[1]
+
+"Adresa de email este $email, userul este $nume si domeniul este $domeniu !"
+
+$email | gm
+$email.Length
+$email.Replace("@","#")
+$email.ToUpper()
+
+#variable date&Time
+get-help Get-Date -Online
+$data = Get-Date
+$data
+
+[DateTime]$data2 = "01.01.2000"
+$data2.GetType()
+
+$data2.DayOfWeek
+$data2.DayOfYear
+$data2.Year
+$data2= $data2.AddDays(+500)
+$data2.AddHours(+6)
