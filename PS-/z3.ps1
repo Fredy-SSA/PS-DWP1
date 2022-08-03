@@ -62,5 +62,18 @@ $s | Remove-CimSession
 
 
 
+Get-CimInstance -ClassName win32_service 
+Get-CimInstance -ClassName win32_process  | select -First 1 | select *
+
+
+Get-CimInstance -ClassName win32_service  | gm
+
+
+#On LON-CL1, in the Windows PowerShell console, enter the following command, and then select Enter:
+Invoke-CimMethod -ComputerName LON-DC1 -ClassName Win32_OperatingSystem -MethodName Reboot 
+#In the Windows PowerShell console, enter the following command, and then select Enter:
+Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine='mspaint.exe'} 
+#In the Windows PowerShell console, enter the following command, and then select Enter:
+Get-CimInstance -Class Win32_Process -Filter "Name='mspaint.exe'" | Invoke-CimMethod -Name Terminate
 
 
