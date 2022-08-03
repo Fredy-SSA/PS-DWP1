@@ -173,3 +173,9 @@ Get-Service | Out-File -Append service.txt
 get-process | Out-GridView
 
 
+get-process | Sort-Object -Descending
+
+get-help about_*com*
+
+$test = Get-Service
+$test.Name.Length
