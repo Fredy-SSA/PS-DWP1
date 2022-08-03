@@ -77,3 +77,42 @@ Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{Comman
 Get-CimInstance -Class Win32_Process -Filter "Name='mspaint.exe'" | Invoke-CimMethod -Name Terminate
 
 
+#Variable
+
+$Integer = 1
+$string = "string"
+$data = Get-Date
+$proces = Get-Process notepad
+
+$Integer | gm
+$Integer.GetType()
+$string.GetType()
+$string
+
+$data.GetType()
+$proces.GetType()
+
+$proces.Kill()
+
+Get-Variable
+
+cd variable:
+ls
+
+
+$string -eq "string"
+$string = $null
+
+Get-Command *-variable
+
+Remove-Variable string
+Clear-Variable string
+
+${ceva frumos} = "habar nu am"
+
+$mere = 10
+$mere = $mere + 2
+$mere = $mere + 2
+$mere
+
+Write-Host "Ana are $mere mere!"
