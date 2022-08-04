@@ -153,3 +153,36 @@ get-service | select name, displayname  | ConvertTo-Json > service.json
 $json2 = Get-Content service.json | ConvertFrom-Json
 $json2
 
+#input/output
+
+$ceva  = Read-Host "Date de introdus"
+$ceva
+$cevasecurizat = read-host "Pass" -AsSecureString
+$cevasecurizat
+
+$cevasecurizat | Export-Clixml pass.xml
+code pass.xml
+
+$cred = Get-Credential -Message "User AD" -UserName "adatim\gicuta" 
+$cred  | Export-Clixml pass.xml
+code pass.xml
+
+
+$meniu = "meniu 1","meniu 2","meniu 3" | Out-GridView -OutputMode Single -Title "Meniu"
+
+
+if ($meniu -eq "meniu 1") {
+    Write-Host "The value is 1."
+}elseif ($meniu -eq "meniu 2") {
+    Write-Host "The value is 2."
+}elseif ($meniu -eq "meniu 3") {
+    Write-Host "The value is 3."
+}
+
+$meniu  = Get-Service  | Out-GridView -OutputMode Multiple -Title "Opreste servicii"
+$meniu | Stop-Service -WhatIf
+
+ $meniu | % {
+  $_.name
+    #ctiunea dorita
+ }
