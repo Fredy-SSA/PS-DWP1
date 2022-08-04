@@ -10,3 +10,7 @@ Te-ai nascut in data de 01/01/1979 .
 Pana acuma ai trait .... zile !
 
 #>
+[datetime]$trecut = "01.01.1979"
+[datetime]$datazi = get-date
+$rezultat = $datazi - $trecut  
+$rezultat.days
