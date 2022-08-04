@@ -186,3 +186,35 @@ $meniu | Stop-Service -WhatIf
   $_.name
     #ctiunea dorita
  }
+
+ 
+ $Error[0]
+ $error.clear()
+
+ "asteapta 3 secunde"
+ start-sleep -seconds 3
+ "done"
+
+
+ #troubleshoot a script
+ get-psbreakpoint
+
+ .\scriptcuparametru1.ps1 -ComputerName sds -EventID 69879 
+
+ #ce sa faca cand da de o eroara in comanda
+#get-service -ErrorAction Stop
+
+
+
+function FunctionName {
+write-host "ceva"
+ls 
+}
+
+FunctionName
+
+$env:psmodulepath -split ";"
+
+ii "c:\program files\powershell\7\Modules"
+
+. .\dotsourcing.ps1
