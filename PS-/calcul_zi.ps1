@@ -52,5 +52,3 @@ $SIzeKB
 $SIzeMB = @{n="SizeKb";e={$_.Length/1MB}}
 $SIzeMB 
 ls c:\| ft Name, $SIzeKB, $SIzeMB 
-
-
