@@ -56,3 +56,49 @@ Get-PSSession | Remove-PSSession
 
 Get-PSSession 
 
+
+
+#local
+start-job -ScriptBlock {ls c:\ } -Name LocalTest
+
+Get-Job
+
+Receive-Job -Name LocalTest 
+
+Get-Command *job
+
+get-job | Remove-Job
+
+Receive-Job -Name LocalTest  -Keep
+
+get-job | fl
+
+#schedule remote
+
+Invoke-Command -ScriptBlock {get-eventlog -LogName Application -Newest 10} -ComputerName PLABDM02,PLABDM01 -JobName RemoteLogs
+
+
+Get-Job
+
+Receive-Job -Name RemoteLogs  -Keep | select source
+
+Receive-Job -Name RemoteLogs  -Keep | ? PSComputerName -like PLABDM01
+
+#-Keep daca nu se pune se sterg datele
+$export = Receive-Job -Name RemoteLogs  -Keep 
+
+
+#triger a schedule 
+Get-Command -module ScheduledTasks
+
+get-job | Remove-Job
+
+$triger = New-JobTrigger -Once -At (get-date).AddMinutes(3)
+
+Register-ScheduledJob -Trigger $triger -Name RegJob -ScriptBlock  {get-eventlog -logname Application -Newest 5 }
+
+get-job
+Get-ScheduledJob
+
+Receive-Job regjob -Keep
+
