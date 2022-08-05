@@ -102,3 +102,27 @@ Get-ScheduledJob
 
 Receive-Job regjob -Keep
 
+#Azure / M365
+
+find-module msonline
+Install-Module msonline -Scope AllUsers 
+get-command -module msonline
+Connect-MsolService 
+
+Get-MsolUser
+
+find-module azureadpreview
+Install-Module  azureadpreview -Scope AllUsers
+get-command -module azureadpreview
+Connect-AzureAD  
+
+Get-AzureADUser
+Get-AzureADUser | select -first 1 | select *
+
+Find-module AZ
+Install-Module az -Scope AllUsers
+
+get-command -module Az.Accounts 
+
+
+
