@@ -1,0 +1,2 @@
+#Transformati scriptul ex.ps1 in Modul 
+#Get-CountFile
